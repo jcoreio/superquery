@@ -8,14 +8,14 @@ import createQuery from '../src'
 /* global URLSearchParams */
 
 const Query = createQuery({
-  parse: search => {
+  parse: (search: string): Object => {
     const result = {}
     for (let [key, value] of new URLSearchParams(search)) {
       result[key] = value
     }
     return result
   },
-  stringify: obj => new URLSearchParams(obj).toString(),
+  stringify: (obj: Object): string => new URLSearchParams(obj).toString(),
 })
 
 describe('Query', () => {
