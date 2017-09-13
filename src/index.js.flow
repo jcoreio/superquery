@@ -5,13 +5,13 @@ export type Options = {
   stringify: (query: Object) => string,
 }
 
-export interface Query {
+declare class Query {
   static (...args: Array<string | Object>): Query;
   constructor(...args: Array<string | Object>): void;
   toString(): string;
 }
 
-declare function makeQuery(options: Options): Query;
+declare function makeQuery(options: Options): Class<Query>;
 
 declare module.exports: typeof makeQuery;
 

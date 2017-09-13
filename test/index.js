@@ -1,3 +1,6 @@
+// @flow
+
+import {describe, it} from 'mocha'
 import {expect} from 'chai'
 import 'url-search-params-polyfill'
 import createQuery from '../src'
@@ -33,7 +36,9 @@ describe('Query', () => {
     })
   })
   it("throws an error if an argument isn't a string or object", () => {
+    // $FlowFixMe
     expect(() => Query([])).to.throw(Error)
+    // $FlowFixMe
     expect(() => Query(2)).to.throw(Error)
     function foo() {}
     expect(() => Query(foo)).to.throw(Error)
@@ -47,7 +52,9 @@ describe('Query', () => {
     })
   })
   it('has proper toString method', () => {
+    // $FlowFixMe
     expect('' + Query('a=1&c=2', {hello: 'world'}, 'foo=bar')).to.equal('a=1&c=2&hello=world&foo=bar')
+    // $FlowFixMe
     expect(`http://localhost?${Query('a=1&c=2', {hello: 'world'}, 'foo=bar')}`).to.equal(
       'http://localhost?a=1&c=2&hello=world&foo=bar'
     )
