@@ -1,4 +1,17 @@
 // @flow
 
+export type Options = {
+  parse: (search: string) => Object,
+  stringify: (query: Object) => string,
+}
 
-declare module.exports: {};
+export interface Query {
+  static (...args: Array<string | Object>): Query;
+  constructor(...args: Array<string | Object>): void;
+  toString(): string;
+}
+
+declare function makeQuery(options: Options): Query;
+
+declare module.exports: typeof makeQuery;
+
