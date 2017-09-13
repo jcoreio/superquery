@@ -40,6 +40,7 @@ const newURL = `http://localhost?${Query('strings=work', {objects: 'work too'}, 
 
 ### So `Query` is super convenient for merging extra values into the existing query:
 
+```js
 const Results = ({match, location}) => (
   <div>
     <table>...</table>
